@@ -1,8 +1,8 @@
 package entidad;
 
 public class Libro {
-    
-       private String titulo;
+
+    private String titulo;
     private String autor;
     private int numeroDeEjemplares;
     private int NumeroDeEjemplaresPrestados;
@@ -51,12 +51,11 @@ public class Libro {
 
     @Override
     public String toString() {
-        return "Libro{" + 
-                "titulo=" + titulo + 
-                ", autor=" + autor + 
-                ", numeroDeEjemplares=" + numeroDeEjemplares + 
-                ", NumeroDeEjemplaresPrestados=" + NumeroDeEjemplaresPrestados + '}';
+        return "Libro{"
+                + "titulo=" + titulo
+                + ", autor=" + autor
+                + ", numeroDeEjemplares=" + numeroDeEjemplares
+                + ", NumeroDeEjemplaresPrestados=" + NumeroDeEjemplaresPrestados + '}';
     }
-    
-    
+
 }

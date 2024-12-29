@@ -24,7 +24,7 @@ public class Ejercicios_extra_3_Guia10 {
         ServicioLibreria libreriaService = new ServicioLibreria();
         HashSet<Libro> libroHashSet = new HashSet<>();
 
-        libroHashSet.add(new Libro("El señor de los anillos", "J.R.R. Tolkien", 5, 2));
+        libroHashSet.add(new Libro("El senor de los anillos", "J.R.R. Tolkien", 5, 2));
         libroHashSet.add(new Libro("El Quijote", "Miguel de Cervantes", 3, 3));
         libroHashSet.add(new Libro("Harry Potter", "J.K. Rowling", 4, 1));
 

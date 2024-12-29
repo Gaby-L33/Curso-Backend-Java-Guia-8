@@ -9,6 +9,13 @@ public class ServicioLibreria {
 
     Scanner leer = new Scanner(System.in);
 
+    //Método prestamo(): El usuario ingresa el titulo del libro que quiere prestar y se lo busca
+    //en el conjunto. Si está en el conjunto, se llama con ese objeto Libro al método. El
+    //método se incrementa de a uno, como un carrito de compras, el atributo ejemplares
+    //prestados, del libro que ingresó el usuario. Esto sucederá cada vez que se realice un
+    //préstamo del libro. No se podrán prestar libros de los que no queden ejemplares
+    //disponibles para prestar. Devuelve true si se ha podido realizar la operación y false en
+    //caso contrario.
     public void prestamo(HashSet<Libro> libroHashSet) {
         System.out.println("Ingrese el titulo del libro que quiere pedir prestado:");
         String titulo = leer.nextLine();
@@ -16,16 +23,18 @@ public class ServicioLibreria {
         Iterator<Libro> it = libroHashSet.iterator();
         while (it.hasNext()) {
             Libro libro = it.next();
-            if (libro.getTitulo().equals(titulo) && libro.getNumeroDeEjemplares() > 0
+            if (libro.getTitulo().equalsIgnoreCase(titulo) && libro.getNumeroDeEjemplares() > 0
                     && libro.getNumeroDeEjemplaresPrestados() < libro.getNumeroDeEjemplares()) {
                 libro.setNumeroDeEjemplaresPrestados(libro.getNumeroDeEjemplaresPrestados() + 1);
+                libro.setNumeroDeEjemplares(libro.getNumeroDeEjemplares() - 1);
+                
                 prestado = true;
             }
         }
         if (prestado) {
-            System.out.println("Entidad.Libro prestado");
+            System.out.println("Libro prestado");
         } else {
-            System.out.println("Entidad.Libro no prestado");
+            System.out.println("Libro no prestado");
             for (Libro libro : libroHashSet) {
                 if (libro.getTitulo().equals(titulo)) {
                     System.out.println("Cantidad de ejemplares existentes: " + libro.getNumeroDeEjemplares());
@@ -55,6 +64,7 @@ public class ServicioLibreria {
             Libro libro = it.next();
             if (libro.getTitulo().equals(titulo) && libro.getNumeroDeEjemplaresPrestados() > 0) {
                 libro.setNumeroDeEjemplaresPrestados(libro.getNumeroDeEjemplaresPrestados() - 1);
+                libro.setNumeroDeEjemplares(libro.getNumeroDeEjemplares() + 1);
                 devuelto = true;
             }
         }

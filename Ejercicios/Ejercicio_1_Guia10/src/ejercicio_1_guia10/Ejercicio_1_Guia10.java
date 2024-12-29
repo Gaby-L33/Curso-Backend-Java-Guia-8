@@ -1,9 +1,3 @@
-package ejercicio_1_guia10;
-
-import PerrosServicio.PerrosServicio;
-
-public class Ejercicio_1_Guia10 {
-
     /**
      * // EJERCICIO 1
         /**
@@ -22,7 +16,12 @@ public class Ejercicio_1_Guia10 {
          * lista ordenada. Si el perro no se encuentra en la lista, se le
          * informará al usuario y se mostrará la lista ordenada.
          */
-    
+package ejercicio_1_guia10;
+
+import PerrosServicio.PerrosServicio;
+
+public class Ejercicio_1_Guia10 {
+
     public static void main(String[] args) {
           PerrosServicio p = new PerrosServicio();
 

@@ -52,6 +52,7 @@ public class ServicioPais {
             }
             System.out.println("Desea eliminar otro Pais ? S/N : ");
             resp = leer.nextLine();
+            aux = false;
         } while ("S".equals(resp.toUpperCase()));
         // Mostrando la Lista con el Pais Eliminado con un forEach
         System.out.println("---LISTA CON PAIS/ES ELIMINADO/S---");

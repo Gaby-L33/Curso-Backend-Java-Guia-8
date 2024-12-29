@@ -5,10 +5,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.Scanner;
 
-/**
- *
- * @author Usuario
- */
 public class PerrosServicio {
   
     Scanner leer = new Scanner(System.in);
@@ -20,6 +16,7 @@ public class PerrosServicio {
         String raza;
         String razaDelete;
         String resp;
+        boolean encontrado = false;
 
         do {
 
@@ -59,9 +56,12 @@ public class PerrosServicio {
         while (it.hasNext()) {
             if (it.next().equals(razaDelete)) {
                 it.remove();
-            }else{
-                System.out.println("La raza Ingresada No se encontraba en la Lista");
+                encontrado = true;
+                break;
             }
+        }
+        if (encontrado == false) {
+            System.out.println("La raza ingresada NO fue encontrada");
         }
         Collections.sort(perro);
         

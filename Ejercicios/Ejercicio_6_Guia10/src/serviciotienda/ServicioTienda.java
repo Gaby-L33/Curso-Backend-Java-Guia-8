@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class ServicioTienda {
-    
+
     /**
      * introducir un elemento, modificar su precio, eliminar un producto y
      * mostrar los productos que tenemos con su precio
@@ -34,12 +34,23 @@ public class ServicioTienda {
         leer.nextLine();
         System.out.println("Desea modificar algun precio de un producto ? S/N : ");
         String resp = leer.nextLine();
+        boolean encontrado = false;
         if ("S".equals(resp.toUpperCase())) {
             System.out.println("Indique que Producto desea modificar : ");
             String respMod = leer.nextLine().toLowerCase();
-            System.out.println("Indique el NUEVO precio de " + respMod + " : ");
-            int precioNuevo = leer.nextInt();
-            mapaProductos.replace(respMod, precioNuevo);
+            for (String producto : mapaProductos.keySet()) {
+                if (producto.toLowerCase().equals(respMod)) {
+                    System.out.println("Indique el NUEVO precio de " + respMod + " : ");
+                    int precioNuevo = leer.nextInt();
+                    mapaProductos.replace(respMod, precioNuevo);
+                    encontrado = true;
+                    break;
+                }
+            }
+            if (!encontrado) {
+                System.out.println("El producto no está en la lista");
+                System.out.println("");
+            }
         }
     }
 
@@ -47,11 +58,23 @@ public class ServicioTienda {
         leer.nextLine();
         System.out.println("Desea Eliminar algun Producto ? S/N : ");
         String resp = leer.nextLine();
+        boolean encontrado = false;
         if ("S".equals(resp.toUpperCase())) {
             System.out.println("Indique que Producto desea ELIMINAR : ");
             String respMod = leer.nextLine().toLowerCase();
-            mapaProductos.remove(respMod);
+            for (String producto : mapaProductos.keySet()) {
+                if (producto.toLowerCase().equals(respMod)) {
+                    mapaProductos.remove(producto);
+                    encontrado = true;
+                    break;
+                }
+            }
+            if (!encontrado) {
+                System.out.println("El producto no está en la lista");
+                System.out.println("");
+            }
         }
+
     }
 
     public void mostrarProductos() {
@@ -98,5 +121,5 @@ public class ServicioTienda {
         } while (var != 5);
 
     }
-    
+
 }

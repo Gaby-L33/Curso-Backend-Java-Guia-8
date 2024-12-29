@@ -1,7 +1,9 @@
+//* tendremos una clase Pelicula con el título,
+//* director y duración de la película (en horas).
 package pelicula;
 
 public class Pelicula {
-    
+
     private String titulo;
     private String director;
     private int horas;
@@ -43,5 +45,5 @@ public class Pelicula {
     public String toString() {
         return "Pelicula{" + "titulo=" + titulo + ", director=" + director + ", horas=" + horas + '}';
     }
-    
+
 }
